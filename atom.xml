@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://Mooan.github.com/atom.xml" rel="self"/>
+  <link href="http://Mooan.github.com/"/>
+  <updated>2012-10-21T02:55:20+09:00</updated>
+  <id>http://Mooan.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[my_first_post]]></title>
+    <link href="http://Mooan.github.com/blog/2012/10/21/my-first-post/"/>
+    <updated>2012-10-21T02:00:00+09:00</updated>
+    <id>http://Mooan.github.com/blog/2012/10/21/my-first-post</id>
+    <content type="html"><![CDATA[<h1>Octopressをインストールしてみた</h1>
+
+<p>Macにインストール</p>
+
+<h2>インストール</h2>
+
+<p>RVM</p>
+
+<pre><code>curl -L https://get.rvm.io | bash -s stable --ruby
+rvm install 1.9.3
+source /Users/yasudakoji/.rvm/scripts/rvm
+rvm install 1.9.3
+rvm use 1.9.3
+rvm rubygems latest
+</code></pre>
+
+<p>Octopress</p>
+
+<pre><code>git clone git://github.com/imathis/octopress.git octopress
+rvm --create use 1.9.3@octopress
+rvm use 1.9.3@octopress
+
+cd octopress/
+gem install bundler
+bundle
+rake install
+</code></pre>
+
+<p>github_pagesでデプロイするので、</p>
+
+<pre><code>rake setup_github_pages
+</code></pre>
+
+<p>POW</p>
+
+<p>Mac用の簡易Rackサーバ</p>
+
+<pre><code>curl get.pow.cx | sh
+cd ~/.pow
+ln -s /Users/yasudakoji/work/octopress octopress
+</code></pre>
+
+<h2>動作確認</h2>
+
+<p>新しい記事を作成</p>
+
+<pre><code>cd octopress/
+rake new_post["my_first_post"]
+</code></pre>
+
+<p><code>~/octopress/source/_post/</code>以下に記事ができている。
+編集後に</p>
+
+<pre><code>rake watch
+</code></pre>
+
+<p>http://octopress.dev
+ページが見えた。</p>
+]]></content>
+  </entry>
+  
+</feed>
